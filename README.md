@@ -30,7 +30,9 @@ Smart File Renamer/
 |-- main_es.py
 |-- renamer.py
 |-- utils.py
+|-- build_exe.ps1
 |-- requirements.txt
+|-- .gitignore
 `-- README.md
 ```
 
@@ -56,25 +58,30 @@ Run the Spanish version:
 python main_es.py
 ```
 
-## Build a Windows EXE
+## Build Windows EXE Files
 
-The app is ready to package with PyInstaller.
+The project includes a PowerShell build script that creates both Windows executables with PyInstaller.
 
-English version:
-
-```powershell
-pip install -r requirements.txt
-pyinstaller --name "Smart File Renamer" --windowed --onefile main.py
-```
-
-Spanish version:
+From PowerShell:
 
 ```powershell
 pip install -r requirements.txt
-pyinstaller --name "Renombrador Inteligente de Archivos" --windowed --onefile main_es.py
+.\build_exe.ps1
 ```
 
-The executables will be created in the `dist` folder.
+The script creates:
+
+```text
+dist/SmartFileRenamer_EN.exe
+dist/RenombradorInteligente_ES.exe
+```
+
+Equivalent manual PyInstaller commands:
+
+```powershell
+python -m PyInstaller --noconfirm --clean --windowed --onefile --name SmartFileRenamer_EN main.py
+python -m PyInstaller --noconfirm --clean --windowed --onefile --name RenombradorInteligente_ES main_es.py
+```
 
 ## Rename Safety
 
