@@ -6,6 +6,16 @@
 ![Portable App](https://img.shields.io/badge/Portable_App-EXE-6D28D9?style=for-the-badge)
 ![Bilingual](https://img.shields.io/badge/Bilingual-EN%20%2F%20ES-F59E0B?style=for-the-badge)
 
+## Preview / Vista previa
+
+### English Version
+
+![Smart File Renamer English](./assets/screenshot-en.png)
+
+### Versión en Español
+
+![Renombrador Inteligente de Archivos](./assets/screenshot-es.png)
+
 ## English overview
 
 Smart File Renamer is a clean Windows desktop app for previewing and bulk-renaming files safely. It provides an English interface, a Spanish interface, duplicate detection, and an EXE-ready project structure powered by Python, Tkinter, and PyInstaller.
