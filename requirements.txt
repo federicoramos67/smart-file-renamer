@@ -1,0 +1,5 @@
+# Tkinter ships with the standard Python installer on Windows.
+# No third-party runtime dependencies are required.
+
+# Optional packaging tool:
+pyinstaller>=6.0
