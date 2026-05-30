@@ -1,44 +1,62 @@
-# Smart File Renamer
+# Smart File Renamer / Renombrador Inteligente de Archivos
 
-A modern dark-mode Windows desktop app for safely previewing and bulk-renaming files with Python and Tkinter.
+![Windows](https://img.shields.io/badge/Windows-Ready-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Tkinter](https://img.shields.io/badge/Tkinter-GUI-2E7D32?style=for-the-badge)
+![Portable App](https://img.shields.io/badge/Portable_App-EXE-6D28D9?style=for-the-badge)
+![Bilingual](https://img.shields.io/badge/Bilingual-EN%20%2F%20ES-F59E0B?style=for-the-badge)
 
-The project includes two independent launchers:
+## English overview
 
-- `main.py`: English UI
-- `main_es.py`: Spanish UI
+Smart File Renamer is a clean Windows desktop app for previewing and bulk-renaming files safely. It provides an English interface, a Spanish interface, duplicate detection, and an EXE-ready project structure powered by Python, Tkinter, and PyInstaller.
 
-Both versions share the same backend logic in `renamer.py` and `utils.py`.
+Both app versions live in the same repository and share the same backend logic.
 
-## Features
+- English launcher: `main.py`
+- Spanish launcher: `main_es.py`
+- Shared rename logic: `renamer.py`
+- Shared utilities: `utils.py`
 
-- Select a folder
-- Preview the current and future file names
-- Bulk rename files
-- Remove special characters
-- Replace spaces with underscores
-- Add numbering
-- Add a date prefix
-- Detect duplicate target filenames
-- Block unsafe renames when duplicates or filename conflicts are found
-- EXE-ready project structure
+## Descripción en español
 
-## Project Structure
+Renombrador Inteligente de Archivos es una aplicación de escritorio para Windows que permite previsualizar y renombrar archivos por lotes de forma segura. Incluye interfaz en inglés, interfaz en español, detección de duplicados y una estructura lista para compilar ejecutables con Python, Tkinter y PyInstaller.
 
-```text
-Smart File Renamer/
-|-- main.py
-|-- main_es.py
-|-- renamer.py
-|-- utils.py
-|-- build_exe.ps1
-|-- requirements.txt
-|-- .gitignore
-`-- README.md
-```
+Ambas versiones de la app viven en el mismo repositorio y comparten la misma lógica interna.
 
-## Run From Source
+- Lanzador en inglés: `main.py`
+- Lanzador en español: `main_es.py`
+- Lógica compartida de renombrado: `renamer.py`
+- Utilidades compartidas: `utils.py`
+
+## Features / Características
+
+- Select a folder / Seleccionar una carpeta
+- Preview current and future filenames / Previsualizar nombres actuales y nuevos
+- Bulk rename files / Renombrar archivos por lotes
+- Remove special characters / Eliminar caracteres especiales
+- Replace spaces with underscores / Reemplazar espacios con guiones bajos
+- Add automatic numbering / Agregar numeración automática
+- Add a date prefix / Agregar prefijo de fecha
+- Detect duplicate target filenames / Detectar nombres duplicados
+- Block unsafe rename operations / Bloquear renombrados inseguros
+- Dark modern desktop UI / Interfaz moderna en modo oscuro
+- English and Spanish launchers / Lanzadores en inglés y español
+
+## Download / Descargar
+
+Download the latest portable Windows release here:
+
+[Latest release](https://github.com/federicoramos67/smart-file-renamer/releases/latest)
+
+Descarga la última versión portable para Windows aquí:
+
+[Última versión](https://github.com/federicoramos67/smart-file-renamer/releases/latest)
+
+## How to run / Cómo ejecutar
 
 Use Python 3.10 or newer on Windows.
+
+Usa Python 3.10 o superior en Windows.
 
 ```powershell
 python -m venv .venv
@@ -52,42 +70,53 @@ Run the English version:
 python main.py
 ```
 
-Run the Spanish version:
+Ejecutar la versión en español:
 
 ```powershell
 python main_es.py
 ```
 
-## Build Windows EXE Files
+## Build executable / Compilar ejecutable
 
-The project includes a PowerShell build script that creates both Windows executables with PyInstaller.
+The included PowerShell script builds both portable Windows executables with PyInstaller.
 
-From PowerShell:
+El script de PowerShell incluido compila ambos ejecutables portables para Windows con PyInstaller.
 
 ```powershell
 pip install -r requirements.txt
 .\build_exe.ps1
 ```
 
-The script creates:
+Generated files / Archivos generados:
 
 ```text
 dist/SmartFileRenamer_EN.exe
 dist/RenombradorInteligente_ES.exe
 ```
 
-Equivalent manual PyInstaller commands:
+Manual PyInstaller commands / Comandos manuales de PyInstaller:
 
 ```powershell
 python -m PyInstaller --noconfirm --clean --windowed --onefile --name SmartFileRenamer_EN main.py
 python -m PyInstaller --noconfirm --clean --windowed --onefile --name RenombradorInteligente_ES main_es.py
 ```
 
-## Rename Safety
+## Project structure / Estructura del proyecto
 
-The app always creates a preview before renaming. Renaming is blocked when:
+```text
+Smart File Renamer/
+|-- main.py                 English desktop app
+|-- main_es.py              Spanish desktop app
+|-- renamer.py              Shared rename engine
+|-- utils.py                Shared helpers
+|-- build_exe.ps1           Windows EXE build script
+|-- requirements.txt        Python dependencies
+|-- .gitignore              Python and build ignores
+`-- README.md               Bilingual documentation
+```
 
-- two or more files would receive the same name
-- a new target filename already exists in the selected folder
+## Rename safety / Seguridad del renombrado
 
-During the actual rename, files are first moved through temporary names. This allows file swaps and case-only changes to complete more reliably on Windows.
+The app always creates a preview before renaming. Renaming is blocked when two or more files would receive the same name, or when a target filename already exists in the selected folder.
+
+La app siempre genera una vista previa antes de renombrar. El renombrado se bloquea si dos o más archivos recibirían el mismo nombre, o si el nombre de destino ya existe en la carpeta seleccionada.
